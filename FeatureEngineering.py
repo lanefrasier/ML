@@ -3,7 +3,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 
-features_df = pd.read_csv('pairs_data.csv')
+features_df = pd.read_csv('pairs_data_matched.csv')
 
 # Ensure the columns have string values and handle missing values
 features_df['SAP Alert ID'] = features_df['SAP Alert ID'].fillna('').astype(str)
@@ -34,3 +34,4 @@ features_df['brand_match'] = features_df.apply(
 print("Pairs with Features:\n", features_df[['SAP Alert ID', 'SFMC Alert ID', 'name_similarity', 'time_diff', 'mobile_match', 'brand_match']].head())
 
 features_df.to_pickle('features_data.pkl')
+print(features_df.columns)
